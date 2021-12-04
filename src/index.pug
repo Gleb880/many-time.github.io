@@ -2,6 +2,7 @@ doctype html
 html(lang="ru") 
     head
         meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
         title Many time
         link(rel="preconnect" href="https://fonts.googleapis.com")
         link(href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet")
@@ -13,29 +14,62 @@ html(lang="ru")
             .content
                 nav.nav
                     .navLeft
-                        .mainNav
-                            a.logo
-                                img(src="./images/logo.png" alt="Many time" style="width: 50px")
-                            a(href="#") Home
-                            a(href="#") Pricing 
-                            a(href="#") Events
-                            a(href="#") Contacts
+                        a.navLogo(href="/")
+                            img(src="./images/logo.png" alt="Many time" style="width: 50px")
+                        ul.mainNav
+                            each item in ['Home', 'Pricing', 'Events', 'Contacts']
+                                li.mainNavItem
+                                    a.mainNavLink(href="/")= item
                     .navRight
-                        button.buttonWhite Get Started
-        .content
-            section
-                .hgroup
-                    h2 A life time experience 
-                    h1 Norway Time<br/>To Remember
-                button.colorButton
-                    | Explore locations
-                .parallax
-                    img(src="./images/01.png" alt="Layer 1" data-depth="0")
-                    img(src="./images/02.png" alt="Layer 2" data-depth="0.2")
-                    img(src="./images/03.png" alt="Layer 3" data-depth="0.4")
-                    img(src="./images/04.png" alt="Layer 4" data-depth="0.6")
+                        button.button.buttonWhite Get Started
+        main.main    
+            .content
+                section.sectionMain
+                    .sectionAbsolute
+                        .hgroup
+                            h2.hgroupSubtitle A&nbsp;life time experience 
+                            h1.hgroupTitle Norway Time<br/>To&nbsp;Remember
+                        button.button.buttonBrown
+                            | Explore locations
+                    #parallax.parallax
+                        img(src="./images/parallax/01.png" alt="Layer 1" data-depth="0")
+                        img(src="./images/parallax/02.png" alt="Layer 2" data-depth="0.2")
+                        img(src="./images/parallax/03.png" alt="Layer 3" data-depth="0.4")
+                        img(src="./images/parallax/04.png" alt="Layer 4" data-depth="0.6")
+                section 
+                    h2 Travel experience 
+                    p Summary about the&nbsp;travel
+                    ul.icons#icons
+                        li.iconsItem
+                            include includes/backpack.pug
+                        li.iconsItem
+                            include includes/mountains.pug
+                        li.iconsItem
+                            include includes/boat.pug
+                        li.iconsItem
+                            include includes/tourist.pug
+                        li.iconsItem
+                            include includes/control.pug
+            section.sectionWhite
+                .content 
+                    h2 Gallery 
+                    p Summary about the&nbsp;travel 
+                    ul.gallery
+                        li.galleryItem.jsBounceLeft.jsAnimatable
+                            img(src=`./images/gallery/image1.jpg` alt=`image1`)
+                        li.galleryItem.jsBounceRight.jsAnimatable
+                            img(src=`./images/gallery/image2.jpg` alt=`image2`)
+                        li.galleryItem.jsBounceLeft.jsAnimatable
+                            img(src=`./images/gallery/image3.jpg` alt=`image3`)
+                        li.galleryItem.jsBounceRight.jsAnimatable
+                            img(src=`./images/gallery/image4.jpg` alt=`image4`)
+        footer.footer
+            .content 
+                p.copyright © Gleb Krylov
 
-        script(src="/src/js/index.js")
+        script(src="./js/scroll-animation.js")
+        script(src="./js/parallax.js")
+        script(src="./js/svg-animation.js")
         
             
 
